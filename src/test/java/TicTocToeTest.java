@@ -13,6 +13,7 @@ class TicTocToeTest {
     public static final String CROSS = "X";
     public static final String DOT = "O";
     public static final List<Integer> FIRST_ROW = asList(0, 1, 2);
+    public static final List<Integer> FIRST_COLUMN = asList(0, 3, 6);
 
     @Test
     void shouldNotifyUserThatAlreadyFilledPositionIsNotAvailableForInput() {
@@ -31,6 +32,18 @@ class TicTocToeTest {
         String actualWinner = ticTocToe.getWinner();
 
         Assertions.assertEquals("Player Cross", actualWinner); // TODO - Player Cross is still a magic literal
+    }
+
+    @Test
+    void shouldDeclarePlayerDotAsWinnerIfItFillsFirstColumnBeforePlayerCross() { //
+        HashMap<Integer, String> board = new HashMap<>();
+        markBoard(board, CROSS, 4,7,8);
+        markBoard(board, DOT, FIRST_ROW);
+        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+
+        String actualWinner = ticTocToe.getWinner();
+
+        Assertions.assertEquals("Player Dot", actualWinner); // TODO - Player Cross is still a magic literal
     }
 
 
