@@ -4,28 +4,31 @@ import java.util.List;
 public class TicTocToe {
     List<Integer> filledPositionByFirstPlayer = new ArrayList<>();
     List<Integer> filledPositionBySecondPlayer = new ArrayList<>();
+    List<List<Integer>> filledPosition = new ArrayList<>();
     int counter;
 
     public TicTocToe() {
         this.counter = 0;
         filledPositionByFirstPlayer.add(9);
+        filledPosition.add(filledPositionByFirstPlayer);
+        filledPosition.add(filledPositionBySecondPlayer);
+    }
+
+    private void fillPosition(int playerNumber, int inputPosition) throws PositionIsAlreadyFilledException {
+        if (filledPosition.get(playerNumber).contains(inputPosition))
+            throw new PositionIsAlreadyFilledException();
+        else {
+            counter += 1;
+            filledPosition.get(playerNumber).add(inputPosition);
+        }
     }
 
     public void getInput(int inputPosition) throws PositionIsAlreadyFilledException {
         if (counter % 2 == 0) {
-            if (filledPositionByFirstPlayer.contains(inputPosition))
-                throw new PositionIsAlreadyFilledException();
-            else {
-                counter += 1;
-                filledPositionByFirstPlayer.add(inputPosition);
-            }
+            fillPosition(0, inputPosition);
+
         } else {
-            if (filledPositionBySecondPlayer.contains(inputPosition))
-                throw new PositionIsAlreadyFilledException();
-            else {
-                counter += 1;
-                filledPositionBySecondPlayer.add(inputPosition);
-            }
+            fillPosition(1, inputPosition);
         }
     }
 
