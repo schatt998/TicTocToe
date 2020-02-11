@@ -15,23 +15,15 @@ public class TicTocToe2 {
     }
 
     public String getWinner() {
-        if (isFirstRowFilledWithDots() || isSecondRowFilledWithDots()) {
+        if (isRowFilledWithDots(FIRST_ROW) || isRowFilledWithDots(SECOND_ROW)) {
             return "Player Dot";
         }
         return "Player Cross";
     }
 
-    private boolean isFirstRowFilledWithDots() {
+    private boolean isRowFilledWithDots(List<Integer> row) {
         boolean isFirstRowFilled = true;
-        for (Integer position : FIRST_ROW) {
-            isFirstRowFilled &= hasAnyMarker(position) && board.get(position).equals(DOT); // short circuit
-        }
-        return isFirstRowFilled;
-    }
-
-    private boolean isSecondRowFilledWithDots() {
-        boolean isFirstRowFilled = true;
-        for (Integer position : SECOND_ROW) {
+        for (Integer position : row) {
             isFirstRowFilled &= hasAnyMarker(position) && board.get(position).equals(DOT); // short circuit
         }
         return isFirstRowFilled;
