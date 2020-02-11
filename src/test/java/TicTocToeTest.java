@@ -17,13 +17,13 @@ class TicTocToeTest {
         TicTocToe ticTocToe = new TicTocToe();
         Assertions.assertThrows(PositionIsAlreadyFilledException.class, () -> ticTocToe.getInput(9));
     }
- //TODO Question  ,if top down approach introduces primitive obsession.
+    //TODO Question  ,if top down approach introduces primitive obsession.
 
     @Test
     void shouldDeclarePlayerCrossAsWinnerIfItFillsFirstRowBeforePlayerDot() { //
         HashMap<Integer, String> board = new HashMap<>();
         markBoard(board, TicTocToe2.CROSS, TicTocToe2.FIRST_ROW);
-        markBoard(board, TicTocToe2.DOT, 4, 7);
+        markBoard(board, TicTocToe2.DOT, 4, 7); // TODO - could this be simpler?
         TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
@@ -34,13 +34,25 @@ class TicTocToeTest {
     @Test
     void shouldDeclarePlayerDotAsWinnerIfItFillsFirstColumnBeforePlayerCross() { //
         HashMap<Integer, String> board = new HashMap<>();
-        markBoard(board, TicTocToe2.CROSS, 4,7,8);
+        markBoard(board, TicTocToe2.CROSS, 4, 7, 8);
         markBoard(board, TicTocToe2.DOT, TicTocToe2.FIRST_ROW);
         TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
 
         Assertions.assertEquals("Player Dot", actualWinner); // TODO - Player Cross is still a magic literal
+    }
+
+    @Test
+    void shouldDeclarePlayerCrossAsWinnerIfItFillsSecondRowBeforePlayerDot() { //
+        HashMap<Integer, String> board = new HashMap<>();
+        markBoard(board, TicTocToe2.CROSS, TicTocToe2.SECOND_ROW);
+        markBoard(board, TicTocToe2.DOT, 1, 2);
+        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+
+        String actualWinner = ticTocToe.getWinner();
+
+        Assertions.assertEquals("Player Cross", actualWinner); // TODO - Player Cross is still a magic literal
     }
 
 
@@ -101,7 +113,6 @@ class TicTocToeTest {
             board.put(position, marker);
         }
     }
-
 
 
 }
