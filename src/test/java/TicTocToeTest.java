@@ -67,6 +67,18 @@ class TicTocToeTest {
         Assertions.assertEquals("Player Dot", actualWinner); // TODO - Player Cross is still a magic literal
     }
 
+    @Test
+    void shouldDeclarePlayerDotAsWinnerIfItFillsThirdRowBeforePlayerCross() { //
+        HashMap<Integer, String> board = new HashMap<>();
+        markBoard(board, TicTocToe2.DOT, TicTocToe2.THIRD_ROW);
+        markBoard(board, TicTocToe2.CROSS, 1, 2);
+        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+
+        String actualWinner = ticTocToe.getWinner();
+
+        Assertions.assertEquals("Player Dot", actualWinner); // TODO - Player Cross is still a magic literal
+    }
+
 
     @Test
     void shouldDeclarePlayerOneAsWinnerIfItFillsARowBeforePlayerTwo() throws PositionIsAlreadyFilledException {

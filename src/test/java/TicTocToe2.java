@@ -8,6 +8,7 @@ public class TicTocToe2 {
     public static final String DOT = "O";
     public static final List<Integer> FIRST_ROW = asList(0, 1, 2);
     public static final List<Integer> SECOND_ROW = asList(3, 4, 5);
+    public static final List<Integer> THIRD_ROW = asList(6, 7, 8);
     private HashMap<Integer, String> board;
 
     public TicTocToe2(HashMap<Integer, String> board) {
@@ -15,7 +16,7 @@ public class TicTocToe2 {
     }
 
     public String getWinner() {
-        if (isRowFilledWithDots(FIRST_ROW) || isRowFilledWithDots(SECOND_ROW)) {
+        if (isRowFilledWithDots(FIRST_ROW) || isRowFilledWithDots(SECOND_ROW) || isRowFilledWithDots(THIRD_ROW)) {
             return "Player Dot";
         }
         return "Player Cross";
