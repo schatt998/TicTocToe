@@ -1,3 +1,5 @@
-public interface Player {
-    int giveInput();
+public class Player {
+    int giveInput() {
+        return 0;
+    }
 }

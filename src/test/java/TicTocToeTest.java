@@ -34,4 +34,28 @@ class TicTocToeTest {
 
     }
 
+    @Test
+    void shouldDeclarePlayerTwoAsWinnerIfItFillsARowBeforePlayerOne() throws PositionIsAlreadyFilledException {
+        TicTocToe ticTocToe = new TicTocToe();
+        Player playerOne = mock(Player.class);
+        Player playerTwo = mock(Player.class);
+
+        when(playerOne.giveInput()).thenReturn(1, 2, 8);
+        when(playerTwo.giveInput()).thenReturn(4, 5, 6);
+
+        ticTocToe.getInput(playerOne.giveInput());
+        ticTocToe.getInput(playerTwo.giveInput());
+        ticTocToe.getInput(playerOne.giveInput());
+        ticTocToe.getInput(playerTwo.giveInput());
+        ticTocToe.getInput(playerOne.giveInput());
+        ticTocToe.getInput(playerTwo.giveInput());
+
+        String winner = ticTocToe.getWinner();
+
+        Assertions.assertEquals("Player Two", winner);
+
+
+    }
+
+
 }

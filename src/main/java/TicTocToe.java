@@ -36,7 +36,10 @@ public class TicTocToe {
     public String getWinner() {
         if (filledPositionByFirstPlayer.contains(1) && filledPositionByFirstPlayer.contains(2) && filledPositionByFirstPlayer.contains(3))
             return "Player One";
+        if (filledPositionBySecondPlayer.contains(4) && filledPositionBySecondPlayer.contains(5) && filledPositionBySecondPlayer.contains(6))
+            return "Player Two";
         else
-            return "Player B";
+            return null;
     }
+
 }
