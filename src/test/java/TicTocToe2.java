@@ -15,10 +15,7 @@ public class TicTocToe2 {
     }
 
     public String getWinner() {
-        if (isFirstRowFilledWithDots()) {
-            return "Player Dot";
-        }
-        if (isSecondRowFilledWithDots()) {
+        if (isFirstRowFilledWithDots() || isSecondRowFilledWithDots()) {
             return "Player Dot";
         }
         return "Player Cross";
