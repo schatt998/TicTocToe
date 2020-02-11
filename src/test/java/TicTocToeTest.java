@@ -10,7 +10,6 @@ import static org.mockito.Mockito.when;
 
 class TicTocToeTest {
 
-    public static final List<Integer> FIRST_ROW = asList(0, 1, 2);
     public static final List<Integer> FIRST_COLUMN = asList(0, 3, 6);
 
     @Test
@@ -23,7 +22,7 @@ class TicTocToeTest {
     @Test
     void shouldDeclarePlayerCrossAsWinnerIfItFillsFirstRowBeforePlayerDot() { //
         HashMap<Integer, String> board = new HashMap<>();
-        markBoard(board, TicTocToe2.CROSS, FIRST_ROW);
+        markBoard(board, TicTocToe2.CROSS, TicTocToe2.FIRST_ROW);
         markBoard(board, TicTocToe2.DOT, 4, 7);
         TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
@@ -36,7 +35,7 @@ class TicTocToeTest {
     void shouldDeclarePlayerDotAsWinnerIfItFillsFirstColumnBeforePlayerCross() { //
         HashMap<Integer, String> board = new HashMap<>();
         markBoard(board, TicTocToe2.CROSS, 4,7,8);
-        markBoard(board, TicTocToe2.DOT, FIRST_ROW);
+        markBoard(board, TicTocToe2.DOT, TicTocToe2.FIRST_ROW);
         TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
