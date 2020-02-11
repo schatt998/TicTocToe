@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
+import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -10,6 +13,15 @@ class TicTocToeTest {
     void shouldNotifyUserThatAlreadyFilledPositionIsNotAvailableForInput() {
         TicTocToe ticTocToe = new TicTocToe();
         Assertions.assertThrows(PositionIsAlreadyFilledException.class, () -> ticTocToe.getInput(9));
+    }
+
+    @Test
+    void shouldDeclarePlayerOneAsWinnerIfItFillsARowBeforePlayerTwo2() {
+        TicTocToe2 ticTocToe = new TicTocToe2(asList("X", "X", "X", "", "0", "", "", "0", "")); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+
+        String actualWinner = ticTocToe.getWinner();
+
+        Assertions.assertEquals("Player A", actualWinner); // TODO - where did player A come from? this is a magic literal?
     }
 
     @Test
