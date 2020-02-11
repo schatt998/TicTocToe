@@ -3,7 +3,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class TicTocToe2 {
+public class Blah {
     public static final String CROSS = "X";
     public static final String DOT = "O";
     public static final List<Integer> FIRST_ROW = asList(0, 1, 2);
@@ -12,7 +12,7 @@ public class TicTocToe2 {
     public static final List<List<Integer>> ALL_ROWS = asList(FIRST_ROW, SECOND_ROW, THIRD_ROW);
     private HashMap<Integer, String> board;
 
-    public TicTocToe2(HashMap<Integer, String> board) {
+    public Blah(HashMap<Integer, String> board) {
         this.board = board;
     }
 

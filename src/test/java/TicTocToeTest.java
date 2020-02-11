@@ -22,9 +22,9 @@ class TicTocToeTest {
     @Test
     void shouldDeclarePlayerCrossAsWinnerIfItFillsFirstRowBeforePlayerDot() { //
         HashMap<Integer, String> board = new HashMap<>();
-        markBoard(board, TicTocToe2.CROSS, TicTocToe2.FIRST_ROW);
-        markBoard(board, TicTocToe2.DOT, 4, 7); // TODO - could this be simpler?
-        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+        markBoard(board, Blah.CROSS, Blah.FIRST_ROW);
+        markBoard(board, Blah.DOT, 4, 7); // TODO - could this be simpler?
+        Blah ticTocToe = new Blah(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
 
@@ -34,9 +34,9 @@ class TicTocToeTest {
     @Test
     void shouldDeclarePlayerDotAsWinnerIfItFillsFirstColumnBeforePlayerCross() { //
         HashMap<Integer, String> board = new HashMap<>();
-        markBoard(board, TicTocToe2.CROSS, 4, 7, 8);
-        markBoard(board, TicTocToe2.DOT, TicTocToe2.FIRST_ROW);
-        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+        markBoard(board, Blah.CROSS, 4, 7, 8);
+        markBoard(board, Blah.DOT, Blah.FIRST_ROW);
+        Blah ticTocToe = new Blah(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
 
@@ -46,9 +46,9 @@ class TicTocToeTest {
     @Test
     void shouldDeclarePlayerCrossAsWinnerIfItFillsSecondRowBeforePlayerDot() { //
         HashMap<Integer, String> board = new HashMap<>();
-        markBoard(board, TicTocToe2.CROSS, TicTocToe2.SECOND_ROW);
-        markBoard(board, TicTocToe2.DOT, 1, 2);
-        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+        markBoard(board, Blah.CROSS, Blah.SECOND_ROW);
+        markBoard(board, Blah.DOT, 1, 2);
+        Blah ticTocToe = new Blah(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
 
@@ -58,9 +58,9 @@ class TicTocToeTest {
     @Test
     void shouldDeclarePlayerDotAsWinnerIfItFillsSecondRowBeforePlayerCross() { //
         HashMap<Integer, String> board = new HashMap<>();
-        markBoard(board, TicTocToe2.DOT, TicTocToe2.SECOND_ROW);
-        markBoard(board, TicTocToe2.CROSS, 1, 2);
-        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+        markBoard(board, Blah.DOT, Blah.SECOND_ROW);
+        markBoard(board, Blah.CROSS, 1, 2);
+        Blah ticTocToe = new Blah(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
 
@@ -70,14 +70,26 @@ class TicTocToeTest {
     @Test
     void shouldDeclarePlayerDotAsWinnerIfItFillsThirdRowBeforePlayerCross() { //
         HashMap<Integer, String> board = new HashMap<>();
-        markBoard(board, TicTocToe2.DOT, TicTocToe2.THIRD_ROW);
-        markBoard(board, TicTocToe2.CROSS, 1, 2);
-        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+        markBoard(board, Blah.DOT, Blah.THIRD_ROW);
+        markBoard(board, Blah.CROSS, 1, 2);
+        Blah ticTocToe = new Blah(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
 
         Assertions.assertEquals("Player Dot", actualWinner); // TODO - Player Cross is still a magic literal
     }
+    @Test
+    void shouldDeclarePlayerCrossAsWinnerIfItFillsThirdRowBeforePlayerDot() { //
+        HashMap<Integer, String> board = new HashMap<>();
+        markBoard(board, Blah.CROSS, Blah.THIRD_ROW);
+        markBoard(board, Blah.DOT, 1, 2);
+        Blah ticTocToe = new Blah(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+
+        String actualWinner = ticTocToe.getWinner();
+
+        Assertions.assertEquals("Player Cross", actualWinner); // TODO - Player Cross is still a magic literal
+    }
+
 
 
     @Test
