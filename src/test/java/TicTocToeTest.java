@@ -18,7 +18,7 @@ class TicTocToeTest {
         TicTocToe ticTocToe = new TicTocToe();
         Assertions.assertThrows(PositionIsAlreadyFilledException.class, () -> ticTocToe.getInput(9));
     }
-
+ //TODO Question  ,if top down approach introduces primitive obsession.
 
     @Test
     void shouldDeclarePlayerCrossAsWinnerIfItFillsFirstRowBeforePlayerDot() { //

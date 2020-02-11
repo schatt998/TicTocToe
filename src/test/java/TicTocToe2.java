@@ -1,5 +1,7 @@
 import java.util.HashMap;
 
+import static java.util.Arrays.asList;
+
 public class TicTocToe2 {
     public static final String CROSS = "X";
     public static final String DOT = "O";
@@ -17,6 +19,10 @@ public class TicTocToe2 {
     }
 
     private boolean isFirstRowFilledWithDots() {
-        return board.get(0).equals(DOT) && board.get(1).equals(DOT) && board.get(2).equals(DOT);
+        boolean isFirstRowFilled = true;
+        for (Integer position : asList(0,1,2)) {
+            isFirstRowFilled &= board.get(position).equals(DOT);
+        }
+        return isFirstRowFilled;
     }
 }
