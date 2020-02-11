@@ -10,9 +10,13 @@ public class TicTocToe2 {
     }
 
     public String getWinner() {
-        if (board.get(0).equals(DOT) && board.get(1).equals(DOT) && board.get(2).equals(DOT)) {
+        if (isFirstRowFilledWithDots()) {
             return "Player Dot";
         }
         return "Player Cross";
+    }
+
+    private boolean isFirstRowFilledWithDots() {
+        return board.get(0).equals(DOT) && board.get(1).equals(DOT) && board.get(2).equals(DOT);
     }
 }
