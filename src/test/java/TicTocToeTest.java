@@ -2,7 +2,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.List;
 
+import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -10,6 +12,7 @@ class TicTocToeTest {
 
     public static final String X = "X";
     public static final String O = "O";
+    public static final List<Integer> FIRST_ROW = asList(0, 1, 2);
 
     @Test
     void shouldNotifyUserThatAlreadyFilledPositionIsNotAvailableForInput() {
@@ -19,24 +22,27 @@ class TicTocToeTest {
 
 
     @Test
-        // TODO - whose player A? - PLayer cross now.
-    void shouldDeclarePlayerOneAsWinnerIfItFillsARowBeforePlayerTwo2() { // TODO - inconsistency - PlayerOne vs Player A
+    void shouldDeclarePlayerCrossAsWinnerIfItFillsFirstRowBeforePlayerDot() { //
 
         HashMap<Integer, String> board = new HashMap<>();
 
-        markBoard(board, "X", 0, 1, 2);
+        markBoard(board, "X", FIRST_ROW);
         markBoard(board, "0", 4, 7);
 
         TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
-        // TODO - I represent unmarked spaces as empty strings. Its inconvinent.
-        // TODO - difficult to see the indexes.
 
         String actualWinner = ticTocToe.getWinner();
 
-        Assertions.assertEquals("Player Cross", actualWinner); // TODO - where did player A come from? this is a magic literal?
+        Assertions.assertEquals("Player Cross", actualWinner); // TODO - Player Cross is still a magic literal
     }
 
     private void markBoard(HashMap<Integer, String> board, String marker, int... positions) {
+        for (int position : positions) {
+            board.put(position, marker);
+        }
+    }
+
+    private void markBoard(HashMap<Integer, String> board, String marker, List<Integer> positions) {
         for (int position : positions) {
             board.put(position, marker);
         }
