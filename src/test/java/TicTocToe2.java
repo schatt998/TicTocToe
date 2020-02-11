@@ -18,13 +18,24 @@ public class TicTocToe2 {
         if (isFirstRowFilledWithDots()) {
             return "Player Dot";
         }
+        if (isSecondRowFilledWithDots()) {
+            return "Player Dot";
+        }
         return "Player Cross";
     }
 
     private boolean isFirstRowFilledWithDots() {
         boolean isFirstRowFilled = true;
         for (Integer position : FIRST_ROW) {
-            isFirstRowFilled &= hasAnyMarker(position) && board.get(position).equals(DOT);
+            isFirstRowFilled &= hasAnyMarker(position) && board.get(position).equals(DOT); // short circuit
+        }
+        return isFirstRowFilled;
+    }
+
+    private boolean isSecondRowFilledWithDots() {
+        boolean isFirstRowFilled = true;
+        for (Integer position : SECOND_ROW) {
+            isFirstRowFilled &= hasAnyMarker(position) && board.get(position).equals(DOT); // short circuit
         }
         return isFirstRowFilled;
     }
