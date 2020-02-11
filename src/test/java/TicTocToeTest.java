@@ -36,17 +36,6 @@ class TicTocToeTest {
         Assertions.assertEquals("Player Cross", actualWinner); // TODO - Player Cross is still a magic literal
     }
 
-    private void markBoard(HashMap<Integer, String> board, String marker, int... positions) {
-        for (int position : positions) {
-            board.put(position, marker);
-        }
-    }
-
-    private void markBoard(HashMap<Integer, String> board, String marker, List<Integer> positions) {
-        for (int position : positions) {
-            board.put(position, marker);
-        }
-    }
 
     @Test
     void shouldDeclarePlayerOneAsWinnerIfItFillsARowBeforePlayerTwo() throws PositionIsAlreadyFilledException {
@@ -92,6 +81,20 @@ class TicTocToeTest {
 
 
     }
+
+    // TODO - duplication in helper methods...
+    private void markBoard(HashMap<Integer, String> board, String marker, int... positions) {
+        for (int position : positions) {
+            board.put(position, marker);
+        }
+    }
+
+    private void markBoard(HashMap<Integer, String> board, String marker, List<Integer> positions) {
+        for (int position : positions) {
+            board.put(position, marker);
+        }
+    }
+
 
 
 }
