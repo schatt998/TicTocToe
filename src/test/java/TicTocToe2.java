@@ -9,6 +9,7 @@ public class TicTocToe2 {
     public static final List<Integer> FIRST_ROW = asList(0, 1, 2);
     public static final List<Integer> SECOND_ROW = asList(3, 4, 5);
     public static final List<Integer> THIRD_ROW = asList(6, 7, 8);
+    public static final List<List<Integer>> ALL_ROWS = asList(FIRST_ROW, SECOND_ROW, THIRD_ROW);
     private HashMap<Integer, String> board;
 
     public TicTocToe2(HashMap<Integer, String> board) {
@@ -24,7 +25,7 @@ public class TicTocToe2 {
 
     private boolean isAnyRowFilledWithDots() {
         boolean isAnyRowFilled = false;
-        for (List<Integer> row : asList(FIRST_ROW, SECOND_ROW, THIRD_ROW)) {
+        for (List<Integer> row : ALL_ROWS) {
             isAnyRowFilled |= isRowFilledWithDots(row);
 
         }
