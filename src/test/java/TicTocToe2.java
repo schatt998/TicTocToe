@@ -1,7 +1,8 @@
+import java.util.HashMap;
 import java.util.List;
 
 public class TicTocToe2 {
-    public TicTocToe2(List<String> board) {
+    public TicTocToe2(HashMap<Integer, String> board) {
 
     }
 

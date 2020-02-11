@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
@@ -15,9 +16,20 @@ class TicTocToeTest {
         Assertions.assertThrows(PositionIsAlreadyFilledException.class, () -> ticTocToe.getInput(9));
     }
 
-    @Test // TODO - whose player A?
+    @Test // TODO - whose player A? - PLayer cross now.
     void shouldDeclarePlayerOneAsWinnerIfItFillsARowBeforePlayerTwo2() { // TODO - inconsistency - PlayerOne vs Player A
-        TicTocToe2 ticTocToe = new TicTocToe2(asList("X", "X", "X", "", "0", "", "", "0", "")); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+
+        HashMap<Integer, String> board = new HashMap<>();
+        board.put(0,"X");
+        board.put(1,"X");
+        board.put(2,"X");
+
+        board.put(4,"O");
+        board.put(7,"O");
+
+        TicTocToe2 ticTocToe = new TicTocToe2(board); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
+        // TODO - I represent unmarked spaces as empty strings. Its inconvinent.
+        // TODO - difficult to see the indexes.
 
         String actualWinner = ticTocToe.getWinner();
 
