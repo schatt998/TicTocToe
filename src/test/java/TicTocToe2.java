@@ -16,10 +16,19 @@ public class TicTocToe2 {
     }
 
     public String getWinner() {
-        if (isRowFilledWithDots(FIRST_ROW) || isRowFilledWithDots(SECOND_ROW) || isRowFilledWithDots(THIRD_ROW)) {
+        if (isAnyRowFilledWithDots()) {
             return "Player Dot";
         }
         return "Player Cross";
+    }
+
+    private boolean isAnyRowFilledWithDots() {
+        boolean isAnyRowFilled = false;
+        for (List<Integer> row : asList(FIRST_ROW, SECOND_ROW, THIRD_ROW)) {
+            isAnyRowFilled |= isRowFilledWithDots(row);
+
+        }
+        return isAnyRowFilled;
     }
 
     private boolean isRowFilledWithDots(List<Integer> row) {
