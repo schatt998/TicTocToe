@@ -24,10 +24,7 @@ public class TicTocToe2 {
     private boolean isFirstRowFilledWithDots() {
         boolean isFirstRowFilled = true;
         for (Integer position : FIRST_ROW) {
-            if (!hasAnyMarker(position)) {
-                return false;
-            }
-            isFirstRowFilled &= board.get(position).equals(DOT);
+            isFirstRowFilled &= hasAnyMarker(position) && board.get(position).equals(DOT);
         }
         return isFirstRowFilled;
     }
