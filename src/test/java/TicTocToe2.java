@@ -6,6 +6,6 @@ public class TicTocToe2 {
     }
 
     public String getWinner() {
-        return "Player A";
+        return "Player Cross";
     }
 }

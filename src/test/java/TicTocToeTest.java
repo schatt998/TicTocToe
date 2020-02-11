@@ -15,13 +15,13 @@ class TicTocToeTest {
         Assertions.assertThrows(PositionIsAlreadyFilledException.class, () -> ticTocToe.getInput(9));
     }
 
-    @Test
-    void shouldDeclarePlayerOneAsWinnerIfItFillsARowBeforePlayerTwo2() {
+    @Test // TODO - whose player A?
+    void shouldDeclarePlayerOneAsWinnerIfItFillsARowBeforePlayerTwo2() { // TODO - inconsistency - PlayerOne vs Player A
         TicTocToe2 ticTocToe = new TicTocToe2(asList("X", "X", "X", "", "0", "", "", "0", "")); // TODO - really unhappy - specifying empty strings is really confusing - am I doing primitive obsession here?
 
         String actualWinner = ticTocToe.getWinner();
 
-        Assertions.assertEquals("Player A", actualWinner); // TODO - where did player A come from? this is a magic literal?
+        Assertions.assertEquals("Player Cross", actualWinner); // TODO - where did player A come from? this is a magic literal?
     }
 
     @Test
